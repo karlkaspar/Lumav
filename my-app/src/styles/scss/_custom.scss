@@ -1,0 +1,13 @@
+/*
+This file is for any scss that cannot easily be fitted into a respective file by element type.
+*/
+html, body, #root {
+    height: 100%;
+}
+body {
+    #root {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
