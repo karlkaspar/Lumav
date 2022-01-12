@@ -7,7 +7,7 @@ const ProductsList = ({ incrementProductCount }) => {
 
         <div className='product'>
             <div className='imgContainer'><img src={item.img} alt={item.name} /></div>
-            <div>{item.name} {item.id}</div>
+            <div>{item.name}</div>
             <div>{item.price} €</div>
             <div><button onClick={() => incrementProductCount()}>To Cart</button></div>
             <div className='deleteBtn' onClick={() => deleteProduct(item.id)}>x</div>
@@ -15,10 +15,6 @@ const ProductsList = ({ incrementProductCount }) => {
     )
     // € from .env file
     return <div className='products-list'>{productsGrid}</div>
-};
-
-const addToCart = (id: Number, e: any) => {
-    console.log(addToCart, id)
 }
 
 export default ProductsList

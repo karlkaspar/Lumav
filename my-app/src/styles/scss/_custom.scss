@@ -17,6 +17,7 @@ body {
         flex-direction: column;
         justify-content: space-between;
         .content {
+            min-height: calc(100vh - 200px);
             padding: 10px;
         }
     }

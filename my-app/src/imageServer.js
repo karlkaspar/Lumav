@@ -11,7 +11,6 @@ What I would improve but am too lazy to do
 2) Take port, request and file paths from .env file
 */
 
-
 const readJson = () => {
     let rawdata = fs.readFileSync("./src/products.json");
     return JSON.parse(rawdata);
@@ -24,11 +23,11 @@ const writeJson = (input) => {
 const deleteImage = (name) => { // Delete image so we do not waste space
     const path = "./public/" + name;
     fs.unlink(path, function (err) {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log("File removed:", path);
-      }
+        if (err) {
+            console.error(err);
+        } else {
+            console.log("File removed:", path);
+        }
     });
 }
 
@@ -43,8 +42,9 @@ const storage = multer.diskStorage({
 
         let newJson = JSON.parse(JSON.stringify(curProducts)) // Deep clone in order to avoid problems
 
+  
         newJson.push({
-            "id": Math.max.apply(Math, curProducts.map((o) => { return o.id + 1; })),
+            "id": (curProducts.length > 0) ? Math.max.apply(Math, curProducts.map((o) => { return o.id + 1; })) : 0,// If there are no products in json, then first id is
             "name": req.body.name,
             "price": req.body.price,
             "img": './images/' + fileName
@@ -64,7 +64,7 @@ app.get('/delete', (req, res) => {
 
     let i = curProducts.map(object => object.id).indexOf(parseInt(id)); // Find index of the obj we want to delete
     let imgName = curProducts[i].img
-    
+
     deleteImage(imgName)
     delete curProducts[i] // Delete it from reference
 
