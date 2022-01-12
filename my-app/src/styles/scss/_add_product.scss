@@ -1,0 +1,13 @@
+.addProduct {
+    text-align: center;
+    margin-bottom: 25px;
+    .inner {
+        max-width: 300px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        >* {
+            margin-bottom: 10px;
+        }
+    }
+}

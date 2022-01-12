@@ -4,12 +4,41 @@
     flex-wrap: wrap;
     .product {
         width: 250px;
-        height: 300px;
+        height: 350px;
         text-align: center;
         background-color: #e0e0e0;
-        margin: 0 10px 0 10px;
+        margin: 15px 10px 0 10px;
+        position: relative;
+        &:hover {
+            box-shadow: -4px 10px 14px 8px rgba(0, 0, 0, 0.07);
+            -webkit-box-shadow: -4px 10px 14px 8px rgba(0, 0, 0, 0.07);
+            -moz-box-shadow: -4px 10px 14px 8px rgba(0, 0, 0, 0.07);
+        }
         button {
             margin-top: 15px;
+        }
+        .deleteBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 15px;
+            border: 1px solid gray;
+            border-radius: 50%;
+            height: 15px;
+            line-height: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            &:hover {
+                color: red;
+            }
+        }
+        .imgContainer {
+            max-width: 100%;
+            max-height: 300px;
+            overflow: hidden;
+            img {
+                max-width: 100%;
+            }
         }
     }
 }

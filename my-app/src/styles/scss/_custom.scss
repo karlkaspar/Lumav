@@ -1,6 +1,11 @@
 /*
 This file is for any scss that cannot easily be fitted into a respective file by element type.
 */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
 html, body, #root {
     height: 100%;
 }
@@ -12,10 +17,7 @@ body {
         flex-direction: column;
         justify-content: space-between;
         .content {
-            min-height: calc(100vh - 150px); // This leaves a little room for footer
+            padding: 10px;
         }
     }
-}
-* {
-    color: black;
 }
