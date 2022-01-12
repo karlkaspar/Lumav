@@ -5,9 +5,13 @@ html, body, #root {
     height: 100%;
 }
 body {
+    background-color: #ebebeb;
     #root {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
+}
+* {
+    color: black;
 }

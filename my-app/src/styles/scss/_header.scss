@@ -1,4 +1,7 @@
 header {
     height: 80px;
     background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
