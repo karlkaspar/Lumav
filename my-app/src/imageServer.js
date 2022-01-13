@@ -7,8 +7,9 @@ const port = 3003;
 
 /* 
 What I would improve but am too lazy to do
-1) Error checks, if something does not work send an apporopriate error message
+1) Null and error checks, if something does not work send an apporopriate error message
 2) Take port, request and file paths from .env file
+3) Production build compatibility
 */
 
 const readJson = () => {
@@ -37,12 +38,9 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         let fileName = Date.now() + path.extname(file.originalname) // Make sure no file has the same name
-
         let curProducts = readJson() // Need to recheck file contents every time to avoid problems
-
         let newJson = JSON.parse(JSON.stringify(curProducts)) // Deep clone in order to avoid problems
 
-  
         newJson.push({
             "id": (curProducts.length > 0) ? Math.max.apply(Math, curProducts.map((o) => { return o.id + 1; })) : 0,// If there are no products in json, then first id is
             "name": req.body.name,
@@ -59,9 +57,7 @@ const upload = multer({ storage: storage })
 
 app.get('/delete', (req, res) => {
     let id = req.query.id
-
     let curProducts = readJson() // Need to recheck file contents every time to avoid problems
-
     let i = curProducts.map(object => object.id).indexOf(parseInt(id)); // Find index of the obj we want to delete
     let imgName = curProducts[i].img
 
@@ -70,9 +66,7 @@ app.get('/delete', (req, res) => {
 
     let newJson = []; // Compile a new object based on the reference without the one we wanted to delete
     curProducts.forEach(product => {
-        if (product !== null) {
-            newJson.push(product)
-        }
+        if (product !== null) newJson.push(product)
     });
 
     writeJson(JSON.stringify(newJson))

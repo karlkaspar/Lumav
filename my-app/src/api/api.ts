@@ -3,19 +3,18 @@ import axios from 'axios'
 
 export const saveProduct = async (data) => {
     try {
-        const resp = await axios.post('http://localhost:3003/upload', data) // PATH FROM ENV
+        const resp = await axios.post('http://localhost:3003/upload', data)
     } catch (error) {
         console.error(error)
     }
 }
 
-
 export const deleteProduct = async (id) => {
     try {
-        const resp = await axios.get('http://localhost:3003/delete?id=' + id);
-        console.log(resp.data);
+        const resp = await axios.get('http://localhost:3003/delete?id=' + id)
+        console.log(resp.data)
     } catch (err) {
         // Handle Error Here
-        console.error(err);
+        console.error(err)
     }
 };
