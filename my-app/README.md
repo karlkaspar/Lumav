@@ -19,3 +19,5 @@ Sadly this release does not work with the production build, front-end is fine bu
 I hope dev mode is enough for now.  
 
 products.json must contain an empty array at the least  
+
+I could have also put the cart product count into a cookie, local storage or done something with it so it does not get lost when you refresh the page.
