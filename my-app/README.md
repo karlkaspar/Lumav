@@ -1,10 +1,10 @@
-Hello and welcome to my test job.
+#Hello and welcome to my test job.
 
-How to run dev mode? 
+##How to run dev mode? 
 "npm start"
-How to build production build?
+##How to build production build?
 "npm run build"
-How to serve production build?
+##How to serve production build?
 First you need to have "serve" library installed, then run:
 "npm serve -s build"
 
