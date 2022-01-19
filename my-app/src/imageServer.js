@@ -13,12 +13,12 @@ What I would improve but am too lazy to do
 */
 
 const readJson = () => {
-    let rawdata = fs.readFileSync("./src/products.json");
+    let rawdata = fs.readFileSync("./products.json");
     return JSON.parse(rawdata);
 }
 
 const writeJson = (input) => {
-    fs.writeFileSync("./src/products.json", input, "utf-8")
+    fs.writeFileSync("./products.json", input, "utf-8")
 }
 
 const deleteImage = (name) => { // Delete image so we do not waste space
@@ -34,7 +34,7 @@ const deleteImage = (name) => { // Delete image so we do not waste space
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/images/')
+        cb(null, '../public/images/')
     },
     filename: (req, file, cb) => {
         let fileName = Date.now() + path.extname(file.originalname) // Make sure no file has the same name
